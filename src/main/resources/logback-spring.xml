@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date [%5p] - %25c - %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${APP_HOME}/logs/transaction-api.%d{yyyy-MM-dd_HH}.log</fileNamePattern>
+            <maxHistory>168</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date [%5p] - %25c - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="springfox" level="INFO" additivity="false">
+        <appender-ref ref="${LOGGER_APPENDER:-CONSOLE}"/>
+    </logger>
+    <logger name="org.springframework.beans.factory" level="INFO" additivity="false">
+        <appender-ref ref="${LOGGER_APPENDER:-CONSOLE}"/>
+    </logger>
+    <logger name="org.springframework.core.env" level="INFO" additivity="false">
+        <appender-ref ref="${LOGGER_APPENDER:-CONSOLE}"/>
+    </logger>
+    <logger name="org.springframework.context.annotation" level="INFO" additivity="false">
+        <appender-ref ref="${LOGGER_APPENDER:-CONSOLE}"/>
+    </logger>
+
+    <root level="${LOGGER_LEVEL:-INFO}">
+        <appender-ref ref="${LOGGER_APPENDER:-CONSOLE}"/>
+    </root>
+</configuration>
