@@ -5,7 +5,7 @@
 
 	<groupId>com.projects</groupId>
 	<artifactId>neo</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>neo</name>
 
@@ -33,7 +33,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -60,6 +63,11 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>3.10.0</version>
+		</dependency>
         <!-- druid数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -88,6 +96,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>true</executable>
+				</configuration>
 			</plugin>
             <plugin>
                 <groupId>com.hanyun.ground.plugins</groupId>
@@ -105,6 +116,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
 		</plugins>
 	</build>
 

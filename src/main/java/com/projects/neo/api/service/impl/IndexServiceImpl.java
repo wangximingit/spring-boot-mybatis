@@ -21,6 +21,7 @@ public class IndexServiceImpl implements IndexService{
     @Resource
     private HanyunRoleDao hanyunRoleDao;
 
+    @Override
     public Map selectInfo() {
         PageHelper.startPage(1, 5);
         List<HanyunRole> list =   hanyunRoleDao.selectSelective(new HanyunRole());
